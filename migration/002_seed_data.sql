@@ -9,11 +9,13 @@ INSERT INTO "PATIENT" (patient_id, first_name, last_name, email, phone) VALUES
 (00004, 'Josh' ,'Williams', 'Josh.Williams@csuf.edu', '7234082234'),
 (00005, 'Hero' ,'Brine', 'Hero.Brine@csuf.edu', '6688230238');
 
--- Support agents
-INSERT INTO agent (full_name, email, hired_at) VALUES
-('Jordan Lee', 'jordan.lee@helpdesk.com', '2024-08-15'),
-('Riley Nguyen', 'riley.nguyen@helpdesk.com', '2023-01-10'),
-('Casey Kim', 'casey.kim@helpdesk.com', '2022-05-01');
+-- Staff information
+INSERT INTO "STAFF" (staff_id, first_name, last_name, email, phone, role) VALUES
+(100001, 'Jordan', 'Lee', 'jordan.lee@medical.com', '7423089243', 'Doctor'),
+(100002, 'Riley', 'Nguyen', 'riley.nguyen@medical.com', '4435230062', 'Receptionist'),
+(100003, 'Mike', 'Phelps', 'mike.phelps@admin.com', '4432278693', 'Administrator'),
+(100004, 'Johnny', 'Phage', 'Johnny.Phage@medical.com', '6088829263', 'Doctor'),
+(100005, 'Casey', 'Kim', 'casey.kim@helpdesk.com', '8726730287', 'Doctor');
 
 -- Categories (lookup)
 INSERT INTO category (name) VALUES
