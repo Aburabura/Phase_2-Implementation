@@ -25,11 +25,13 @@ INSERT INTO "SERVICE" (service_name, service_cost) VALUES
 ('Collar cervical med', 278.00),
 ('Dressing telfa', 270.00);
 
--- Priorities (lookup)
-INSERT INTO priority (name, rank) VALUES
-('Low', 1),
-('Medium', 2),
-('High', 3);
+-- Appointment
+INSERT INTO "APPOINTMENT" (patient_id, staff_id, appointment_date, appointment_time, appointment_status) VALUES
+(1, 1, '2024-03-15', '09:00:00', 'Pending'),
+(2, 1, '2024-03-15', '10:00:00', 'Pending'),
+(3, 2, '2024-03-16', '14:00:00', 'Pending'),
+(1, 1, '2024-03-17', '17:00:00', 'Pending'),
+(2, 1, '2024-03-19', '15:00:00', 'Pending');
 
 -- SLA policy per priority
 INSERT INTO sla_policy (priority_id, target_response_hrs, target_resolution_hrs)
