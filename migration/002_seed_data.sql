@@ -2,26 +2,28 @@
 -- Purpose: Insert sample data (seed data)
 
 -- Patient information
-INSERT INTO "PATIENT" (patient_id, first_name, last_name, email, phone) VALUES
-(00001, 'Ava', 'Chen', 'ava.chen@csuf.edu', '4113032244'),
-(00002, 'Miguel', 'Torres', 'miguel.torres@csuf.edu', '4130234425'),
-(00003, 'Sana' ,'Patel', 'sana.patel@csuf.edu', '6086558923'),
-(00004, 'Josh' ,'Williams', 'Josh.Williams@csuf.edu', '7234082234'),
-(00005, 'Hero' ,'Brine', 'Hero.Brine@csuf.edu', '6688230238');
+INSERT INTO "PATIENT" (first_name, last_name, email, phone) VALUES
+('Ava', 'Chen', 'ava.chen@csuf.edu', '4113032244'),
+('Miguel', 'Torres', 'miguel.torres@csuf.edu', '4130234425'),
+('Sana' ,'Patel', 'sana.patel@csuf.edu', '6086558923'),
+('Josh' ,'Williams', 'Josh.Williams@csuf.edu', '7234082234'),
+('Hero' ,'Brine', 'Hero.Brine@csuf.edu', '6688230238');
 
 -- Staff information
-INSERT INTO "STAFF" (staff_id, first_name, last_name, email, phone, role) VALUES
-(100001, 'Jordan', 'Lee', 'jordan.lee@medical.com', '7423089243', 'Doctor'),
-(100002, 'Riley', 'Nguyen', 'riley.nguyen@medical.com', '4435230062', 'Receptionist'),
-(100003, 'Mike', 'Phelps', 'mike.phelps@admin.com', '4432278693', 'Administrator'),
-(100004, 'Johnny', 'Phage', 'Johnny.Phage@medical.com', '6088829263', 'Doctor'),
-(100005, 'Casey', 'Kim', 'casey.kim@helpdesk.com', '8726730287', 'Doctor');
+INSERT INTO "STAFF" (first_name, last_name, email, phone, role) VALUES
+('Jordan', 'Lee', 'jordan.lee@medical.com', '7423089243', 'Doctor'),
+('Riley', 'Nguyen', 'riley.nguyen@medical.com', '4435230062', 'Receptionist'),
+('Mike', 'Phelps', 'mike.phelps@admin.com', '4432278693', 'Administrator'),
+('Johnny', 'Phage', 'Johnny.Phage@medical.com', '6088829263', 'Doctor'),
+('Casey', 'Kim', 'casey.kim@helpdesk.com', '8726730287', 'Doctor');
 
--- Categories (lookup)
-INSERT INTO category (name) VALUES
-('Network'),
-('Hardware'),
-('Software');
+-- Service
+INSERT INTO "SERVICE" (service_name, service_cost) VALUES
+('Anesthesia eyelid', 103.00),
+('Electrodes 2x2', 272.00),
+('Needle Stimiyplex ultra 20x6', 360.00),
+('Collar cervical med', 278.00),
+('Dressing telfa', 270.00);
 
 -- Priorities (lookup)
 INSERT INTO priority (name, rank) VALUES
