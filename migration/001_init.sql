@@ -1,3 +1,8 @@
+-- 001_init.sql
+-- Purpose: Initialize database schema(tables, keys, relationships, constraints)
+-- Target DB: PostgreSQL (supabase-compatible)
+-- Run order: 001_init.sql -> 002_seed_data.sql -> 003_triggers.sql -> 004_views.sql -> 005_queries.sql
+
 CREATE TYPE "APPOINTMENT_STATUS" AS ENUM (
   'Pending',
   'Cancelled',
