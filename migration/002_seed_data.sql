@@ -2,12 +2,12 @@
 -- Purpose: Insert sample data (seed data)
 
 -- Patient information
-INSERT INTO PATIENT (patient_id, first_name, last_name, email, phone) VALUES
+INSERT INTO "PATIENT" (patient_id, first_name, last_name, email, phone) VALUES
 (00001, 'Ava', 'Chen', 'ava.chen@csuf.edu', '4113032244'),
 (00002, 'Miguel', 'Torres', 'miguel.torres@csuf.edu', '4130234425'),
-(00003, 'Sana' ,'Patel', 'sana.patel@csuf.edu', '6086558923')
-(00004, 'Josh' ,'Williams', 'Josh.Williams@csuf.edu', '7234082234')
-(00005. 'Hero' ,'Brine', 'Hero.Brine@csuf.edu', '6688230238');
+(00003, 'Sana' ,'Patel', 'sana.patel@csuf.edu', '6086558923'),
+(00004, 'Josh' ,'Williams', 'Josh.Williams@csuf.edu', '7234082234'),
+(00005, 'Hero' ,'Brine', 'Hero.Brine@csuf.edu', '6688230238');
 
 -- Support agents
 INSERT INTO agent (full_name, email, hired_at) VALUES
