@@ -53,8 +53,8 @@ CREATE TABLE "MEDICAL_RECORD" (
   "appointment_id" int NOT NULL,
   "visit_notes" varchar,
   "diagnosis" varchar,
-  "admission_date" date,
-  "discharge_date" date
+  "admission_date" date CHECK,
+  "discharge_date" date CHECK
 );
 
 CREATE TABLE "APPOINTMENT_SERVICE" (
