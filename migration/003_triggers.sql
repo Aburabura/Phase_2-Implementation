@@ -5,7 +5,7 @@
 -- Ensure no two appointment are schedules for the same staff at the same time
 
 CREATE OR REPLACE FUNCTION fn_block_double_booking()
-RETURN TRIGGER LANGUAGE plpgsql AS $$
+RETURNS TRIGGER LANGUAGE plpgsql AS $$
 DECLARE
     v_conflict INT;
 BEGIN
