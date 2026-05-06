@@ -33,7 +33,7 @@ INSERT INTO "APPOINTMENT" (patient_id, staff_id, appointment_date, appointment_t
 (1, 1, '2024-03-17', '17:00:00', 'Pending'),
 (2, 1, '2024-03-19', '15:00:00', 'Pending');
 
---Medical Record
+-- Medical Record
 INSERT INTO "MEDICAL_RECORD" (patient_id, appointment_id, visit_notes, diagnosis, admission_date, discharge_date) VALUES
 (1, 1, 'Patient reports mild eye irritation and sensitivity to light. Administered anesthesia eyelid procedure successfully.', 'Blepharitis', '2024-03-15', '2024-03-15'),
 (2, 2, 'Patient experiencing chronic neck pain following a minor vehicular accident. Cervical collar fitted and nerve stimulation therapy initiated.', 'Cervical Radiculopathy', '2024-03-15', '2024-03-17'),
@@ -41,9 +41,26 @@ INSERT INTO "MEDICAL_RECORD" (patient_id, appointment_id, visit_notes, diagnosis
 (1, 4, 'Follow-up visit for blepharitis. Electrodes applied for therapeutic stimulation. Patient reports improvement in symptoms.', 'Blepharitis - Follow-up', '2024-03-17', '2024-03-17'),
 (2, 5, 'Follow-up for cervical radiculopathy. Needle stimulation therapy performed. Patient reports moderate reduction in pain levels.', 'Cervical Radiculopathy - Follow-up', '2024-03-19', '2024-03-19');
 
+-- Appointment Service
 INSERT INTO "APPOINTMENT_SERVICE" (appointment_id, service_id) VALUES
 (1, 1),
 (2, 4),
 (3, 5),
 (4, 2),
 (5, 3);
+
+-- Invoices
+INSERT INTO "INVOICE" (appointment_id, total_amount) VALUES
+(1, 103.00),
+(2, 278.00),
+(3, 270.00),
+(4, 272.00),
+(5, 360.00);
+
+-- Payment information
+INSERT INTO "PAYMENT" (invoice_id, payment_amount, payment_date) VALUES
+(1, 103.00, '2024-03-15'),
+(2, 278.00, '2024-03-18'),
+(3, 270.00, '2024-03-16'),
+(4, 272.00, '2024-03-17'),
+(5, 360.00, '2024-03-20'); 
