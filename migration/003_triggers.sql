@@ -1,3 +1,9 @@
+-- ===================================================================================
+-- TRIGGER 1: Prevent booking an appointment with a staff member who already
+--            has an appointment at the same date/time
+-- ===================================================================================
+-- Ensure no two appointment are schedules for the same staff at the same time
+
 CREATE OR REPLACE FUNCTION fn_block_double_booking()
 RETURN TRIGGER LANGUAGE plpgsql AS $$
 DECLARE
