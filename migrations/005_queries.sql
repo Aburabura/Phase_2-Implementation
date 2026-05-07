@@ -1,12 +1,12 @@
 -- VIEW: Summary of appointments with patient + staff info
 CREATE OR REPLACE VIEW "Appointment_Summary" AS
 SELECT 
-    a."appointment_id",
-    p."first_name" || ' ' || p."last_name" AS patient_name,
-    s."first_name" || ' ' || s."last_name" AS staff_name,
-    a."appointment_date",
-    a."appointment_time",
-    a."appointment_status"
+a."appointment_id",
+p."first_name" || ' ' || p."last_name" AS patient_name,
+s."first_name" || ' ' || s."last_name" AS staff_name,
+a."appointment_date",
+a."appointment_time",
+a."appointment_status"
 FROM "APPOINTMENT" a
 JOIN "PATIENT" p ON a."patient_id" = p."patient_id"
 JOIN "STAFF" s ON a."staff_id" = s."staff_id";
@@ -15,10 +15,10 @@ JOIN "STAFF" s ON a."staff_id" = s."staff_id";
 CREATE OR REPLACE FUNCTION prevent_negative_payment()
 RETURNS TRIGGER AS $$
 BEGIN
-    IF NEW."payment_amount" < 0 THEN
-        RAISE EXCEPTION 'Payment amount cannot be negative';
-    END IF;
-    RETURN NEW;
+IF NEW."payment_amount" < 0 THEN
+RAISE EXCEPTION 'Payment amount cannot be negative';
+END IF;
+RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
@@ -96,10 +96,6 @@ WHERE "payment_id" = 1;
 DELETE FROM "APPOINTMENT_SERVICE"
 WHERE "appointment_id" = 1 AND "service_id" = 1;
 
--- DELETE: Delete cancelled appointments
-DELETE FROM "APPOINTMENT"
-WHERE "appointment_status" = 'Cancelled';
-
 -- DELETE: Remove an invoice
 DELETE FROM "INVOICE"
 WHERE "invoice_id" = 1;
@@ -108,6 +104,40 @@ WHERE "invoice_id" = 1;
 DELETE FROM "MEDICAL_RECORD"
 WHERE "record_id" = 1;
 
--- DELETE: Remove a patient
+-- DELETE: Remove a patient with no appointments
 DELETE FROM "PATIENT"
-WHERE "patient_id" = 5;
+WHERE email = 'Hero.Brine@csuf.edu'
+  AND patient_id NOT IN (
+    SELECT DISTINCT patient_id FROM "APPOINTMENT"
+);
+
+-- DELETE: Remove all cancelled appointments
+DELETE FROM "PAYMENT"
+WHERE invoice_id IN (
+    SELECT invoice_id FROM "INVOICE"
+    WHERE appointment_id IN (
+        SELECT appointment_id FROM "APPOINTMENT"
+        WHERE appointment_status = 'Cancelled'
+    )
+);
+
+DELETE FROM "INVOICE"
+WHERE appointment_id IN (
+    SELECT appointment_id FROM "APPOINTMENT"
+    WHERE appointment_status = 'Cancelled'
+);
+
+DELETE FROM "APPOINTMENT_SERVICE"
+WHERE appointment_id IN (
+    SELECT appointment_id FROM "APPOINTMENT"
+    WHERE appointment_status = 'Cancelled'
+);
+
+DELETE FROM "MEDICAL_RECORD"
+WHERE appointment_id IN (
+    SELECT appointment_id FROM "APPOINTMENT"
+    WHERE appointment_status = 'Cancelled'
+);
+
+DELETE FROM "APPOINTMENT"
+WHERE appointment_status = 'Cancelled';
