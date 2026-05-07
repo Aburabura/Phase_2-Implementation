@@ -27,19 +27,19 @@ INSERT INTO "SERVICE" (service_name, service_cost) VALUES
 
 -- Appointment
 INSERT INTO "APPOINTMENT" (patient_id, staff_id, appointment_date, appointment_time, appointment_status) VALUES
-(1, 1, '2024-03-15', '09:00:00', 'Pending'),
-(2, 1, '2024-03-15', '10:00:00', 'Pending'),
-(3, 2, '2024-03-16', '14:00:00', 'Pending'),
-(1, 1, '2024-03-17', '17:00:00', 'Pending'),
-(2, 1, '2024-03-19', '15:00:00', 'Pending');
+(1, 1, '2024-03-15', '09:00:00', 'Completed'),
+(2, 1, '2026-07-15', '10:00:00', 'Pending'),
+(3, 2, '2026-09-16', '14:00:00', 'Pending'),
+(1, 1, '2024-03-17', '17:00:00', 'Completed'),
+(2, 1, '2027-06-19', '15:00:00', 'Pending');
 
 -- Medical Record
 INSERT INTO "MEDICAL_RECORD" (patient_id, appointment_id, visit_notes, diagnosis, admission_date, discharge_date) VALUES
 (1, 1, 'Patient reports mild eye irritation and sensitivity to light. Administered anesthesia eyelid procedure successfully.', 'Blepharitis', '2024-03-15', '2024-03-15'),
 (2, 2, 'Patient experiencing chronic neck pain following a minor vehicular accident. Cervical collar fitted and nerve stimulation therapy initiated.', 'Cervical Radiculopathy', '2024-03-15', '2024-03-17'),
-(3, 3, 'Patient presented with minor laceration on forearm. Wound cleaned and dressed with telfa dressing. No signs of infection.', 'Superficial Laceration', '2024-03-16', '2024-03-16'),
+(3, 3, 'Patient presented with minor laceration on forearm. Wound cleaned and dressed with telfa dressing. No signs of infection.', 'Superficial Laceration', '2026-07-15', '2026-07-15'),
 (1, 4, 'Follow-up visit for blepharitis. Electrodes applied for therapeutic stimulation. Patient reports improvement in symptoms.', 'Blepharitis - Follow-up', '2024-03-17', '2024-03-17'),
-(2, 5, 'Follow-up for cervical radiculopathy. Needle stimulation therapy performed. Patient reports moderate reduction in pain levels.', 'Cervical Radiculopathy - Follow-up', '2024-03-19', '2024-03-19');
+(2, 5, 'Follow-up for cervical radiculopathy. Needle stimulation therapy performed. Patient reports moderate reduction in pain levels.', 'Cervical Radiculopathy - Follow-up', '2027-06-19', '2027-06-19');
 
 -- Appointment Service
 INSERT INTO "APPOINTMENT_SERVICE" (appointment_id, service_id) VALUES
