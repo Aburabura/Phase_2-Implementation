@@ -27,10 +27,10 @@ INSERT INTO "SERVICE" (service_name, service_cost) VALUES
 
 -- Appointment
 INSERT INTO "APPOINTMENT" (patient_id, staff_id, appointment_date, appointment_time, appointment_status) VALUES
-(1, 1, '2024-03-15', '09:00:00', 'Completed'),
+(1, 1, '2024-03-15', '09:00:00', 'Complete'),
 (2, 1, '2026-07-15', '10:00:00', 'Pending'),
 (3, 2, '2026-09-16', '14:00:00', 'Pending'),
-(1, 1, '2024-03-17', '17:00:00', 'Completed'),
+(1, 1, '2024-03-17', '17:00:00', 'Complete'),
 (2, 1, '2027-06-19', '15:00:00', 'Pending');
 
 -- Medical Record
