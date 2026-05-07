@@ -31,6 +31,8 @@ INSERT INTO "APPOINTMENT" (patient_id, staff_id, appointment_date, appointment_t
 (2, 1, '2026-07-15', '10:00:00', 'Pending'),
 (3, 2, '2026-09-16', '14:00:00', 'Pending'),
 (1, 1, '2024-03-17', '17:00:00', 'Complete'),
+(4, 4, '2025-04-21', '22:00:00', 'Cancelled'),
+(5, 4, '2026-01-22', '09:30:00', 'Cancelled'),
 (2, 1, '2027-06-19', '15:00:00', 'Pending');
 
 -- Medical Record
@@ -39,6 +41,8 @@ INSERT INTO "MEDICAL_RECORD" (patient_id, appointment_id, visit_notes, diagnosis
 (2, 2, 'Patient experiencing chronic neck pain following a minor vehicular accident. Cervical collar fitted and nerve stimulation therapy initiated.', 'Cervical Radiculopathy', '2026-07-15', '2026-07-15'),
 (3, 3, 'Patient presented with minor laceration on forearm. Wound cleaned and dressed with telfa dressing. No signs of infection.', 'Superficial Laceration', '2026-09-16', '2026-09-16'),
 (1, 4, 'Follow-up visit for blepharitis. Electrodes applied for therapeutic stimulation. Patient reports improvement in symptoms.', 'Blepharitis - Follow-up', '2024-03-17', '2024-03-17'),
+(4, 4, 'Patient did not attend scheduled appointment. Appointment was cancelled prior to visit. No examination or treatment administered.', 'N/A - Cancelled Appointment', '2025-04-21', '2025-04-21'),
+(4, 5, 'Patient failed to attend follow-up appointment. Cancellation recorded with no clinical intervention performed. Follow-up rescheduling advised.', 'N/A - Cancelled Appointment', '2026-01-22', '2026-01-22'),
 (2, 5, 'Follow-up for cervical radiculopathy. Needle stimulation therapy performed. Patient reports moderate reduction in pain levels.', 'Cervical Radiculopathy - Follow-up', '2027-06-19', '2027-06-19');
 
 -- Appointment Service
