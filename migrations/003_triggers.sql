@@ -28,3 +28,20 @@ CREATE TRIGGER trg_block_double_booking
     BEFORE INSERT OR UPDATE ON "APPOINTMENT"
     FOR EACH ROW
     EXECUTE FUNCTION fn_block_double_booking();
+
+-- TRIGGER FUNCTION: Prevent negative payments
+CREATE OR REPLACE FUNCTION prevent_negative_payment()
+RETURNS TRIGGER AS $$
+BEGIN
+IF NEW."payment_amount" < 0 THEN
+RAISE EXCEPTION 'Payment amount cannot be negative';
+END IF;
+RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- TRIGGER: Runs before inserting payment
+CREATE TRIGGER check_payment_amount
+BEFORE INSERT ON "PAYMENT"
+FOR EACH ROW
+EXECUTE FUNCTION prevent_negative_payment();
